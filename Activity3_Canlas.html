@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Techno JS Interaction</title>
+
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(270deg, #ff00ff, #00ffff, #00ff6a);
+            background-size: 600% 600%;
+            animation: bgMove 8s infinite alternate;
+            color: #ffffff;
+        }
+
+        @keyframes bgMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .box {
+            width: 420px;
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.75);
+            box-shadow:
+                0 0 20px #00ffff,
+                0 0 40px #ff00ff;
+            border: 2px solid #00ffff;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 26px;
+            text-shadow: 0 0 10px #ff00ff;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: linear-gradient(90deg, #00ffff, #ff00ff);
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 0 10px #00ffff;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px #ff00ff;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 6px;
+            border: none;
+            outline: none;
+            background: #111;
+            color: #00ffff;
+            box-shadow: inset 0 0 10px #00ffff;
+        }
+
+        #output {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #00ff6a;
+            text-shadow: 0 0 10px #00ff6a;
+        }
+
+        #hoverText {
+            margin-top: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-shadow: 0 0 8px #ff00ff;
+            transition: transform 0.2s;
+        }
+
+        #hoverText:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>⚡ JAVASCRIPT PRACTICE ⚡</h2>
+
+    <button onclick="sayHello()">ACTIVATE</button>
+
+    <input type="text" id="userInput" placeholder="Enter signal...">
+    <button onclick="showInput()">TRANSMIT</button>
+
+    <p id="output"></p>
+    <p id="hoverText">⚠ HOVER FOR ENERGY ⚠</p>
+</div>
+
+<script>
+    function getRandomNeon() {
+        const colors = ["#00ffff", "#ff00ff", "#00ff6a", "#ffea00"];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    function sayHello() {
+        alert("SYSTEM ONLINE ⚡");
+        document.body.style.background =
+            linear-gradient(270deg, ${getRandomNeon()}, ${getRandomNeon()});
+    }
+
+    function showInput() {
+        let value = document.getElementById("userInput").value;
+        document.getElementById("output").innerText = value;
+    }
+
+    document.getElementById("hoverText").onmouseover = function () {
+        this.style.color = getRandomNeon();
+        this.style.textShadow = 0 0 15px ${getRandomNeon()};
+    };
+</script>
+
+</body>
+</html>
